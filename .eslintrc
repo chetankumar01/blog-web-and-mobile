@@ -1,6 +1,11 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
   "globals": {
     "React": true,
   },
