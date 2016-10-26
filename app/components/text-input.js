@@ -19,9 +19,9 @@ const CustomTextInput = ({placeholder, value, onChange}) => {
 }
 
 CustomTextInput.propTypes = {
-  placeholder: React.Proptypes.string,
-  value: React.Proptypes.string,
-  onChange: React.Proptypes.func,
+  placeholder: React.PropTypes.string,
+  value: React.PropTypes.string,
+  onChange: React.PropTypes.func,
 }
 
 export default CustomTextInput

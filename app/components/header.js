@@ -3,24 +3,23 @@ import {
   View,
   StyleSheet,
   Text,
-  TouchableOpacity,
 } from 'react-native';
 import Style from '../assets/style';
 
 let Styles =  StyleSheet.create(Style);
 
-const Header = (props) => {
+const Header = ({title, rightAction}) => {
   return (
     <View style={Styles.navBar}>
-      <Text style={Styles.text}>{props.title}</Text>
-      <TouchableOpacity onPress={props.onRightPress}  style={Styles.button} />
+      <Text style={Styles.text}>{title}</Text>
+      {rightAction}
     </View>
   );
 }
 
 Header.propTypes = {
-  title: React.Proptypes.string,
-  onRightPress: React.Proptypes.func,
+  title: React.PropTypes.string,
+  rightAction: React.PropTypes.object,
 }
 
 export default Header
