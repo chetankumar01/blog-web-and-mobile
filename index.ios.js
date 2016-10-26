@@ -9,7 +9,6 @@ import {
   AppRegistry,
   Navigator,
 } from 'react-native';
-
 import Page1 from './page1';
 
 export default class blogWebAndMobile extends Component {

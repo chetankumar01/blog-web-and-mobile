@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
-  TouchableOpacity,
   ListView,
   StyleSheet,
 } from 'react-native';
@@ -26,7 +25,7 @@ export default class page1 extends Component {
     let page2= { component: Page2 };
     return (
       <View>  
-        <NavBar title="Welcome" onRightPress = {() => this.props.navigator.push(page2)} />       
+        <NavBar title="Welcome" onRightPress={() => this.props.navigator.push(page2)} />       
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(rowData) => <Text>{rowData}</Text>}

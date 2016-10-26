@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Text,
   View,
-  TouchableOpacity,
   StyleSheet,
   TextInput,
 } from 'react-native';
@@ -19,7 +17,7 @@ export default class page2 extends Component {
   render() {
     return (
       <View style={{flex: 1, alignItems: 'center'}}>
-        <NavBar title="Page 3" onRightPress = {() => this.props.navigator.pop()} />   
+        <NavBar title="Page 3" onRightPress={() => this.props.navigator.pop()} />   
         <TextInput
           style={Styles.textField}
           onChangeText={(text) => this.setState({text})}
