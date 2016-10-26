@@ -4,8 +4,8 @@ import {
   StyleSheet,
   TextInput,
 } from 'react-native';
-import Style from './style';
-import NavBar from './header-nav';
+import Style from '../assets/style';
+import NavBar from '../component/header-nav';
 
 let Styles =  StyleSheet.create(Style);
 

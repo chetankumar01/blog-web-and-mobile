@@ -5,7 +5,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import Style from './style';
+import Style from '../assets/style';
 
 let Styles =  StyleSheet.create(Style);
 

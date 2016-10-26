@@ -9,7 +9,7 @@ import {
   AppRegistry,
   Navigator,
 } from 'react-native';
-import Page1 from './page1';
+import  Page1 from './app/screens/page1';
 
 export default class blogWebAndMobile extends Component {
   render() {

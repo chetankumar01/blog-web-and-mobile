@@ -6,8 +6,8 @@ import {
   StyleSheet,
 } from 'react-native';
 import Page2 from './page2';
-import Style from './style';
-import NavBar from './header-nav';
+import Style from '../assets/style';
+import NavBar from '../component/header-nav';
 
 let Styles =  StyleSheet.create(Style);
 
