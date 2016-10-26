@@ -3,21 +3,31 @@ import {
   Text,
   View,
   TouchableOpacity,
+  StyleSheet,
+  TextInput,
 } from 'react-native';
+import Style from './style';
+import NavBar from './header-nav';
+
+let Styles =  StyleSheet.create(Style);
 
 export default class page2 extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: 'Useless Placeholder' };
+    this.state = { text: '' };
   }
   render() {
     return (
-      <View>
-        <Text>Hello World Page 2</Text>
-        <TouchableOpacity onPress={() => this.props.navigator.pop()}>
-          <Text>Back to page 1</Text>
-        </TouchableOpacity>
+      <View style={{flex: 1, alignItems: 'center'}}>
+        <NavBar title="Page 3" onRightPress = {() => this.props.navigator.pop()} />   
+        <TextInput
+          style={Styles.textField}
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.text}
+          placeholder="Enter your name"
+        />
       </View>
     );
   }
 }
+

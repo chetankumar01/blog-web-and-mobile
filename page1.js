@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import Page2 from './page2';
 import Style from './style';
+import NavBar from './header-nav';
 
 let Styles =  StyleSheet.create(Style);
 
@@ -24,11 +25,8 @@ export default class page1 extends Component {
   render() {
     let page2= { component: Page2 };
     return (
-      <View>
-        <View style={Styles.navBar}>
-          <Text style={Styles.text}>Welcome</Text>
-          <TouchableOpacity onPress={() => this.props.navigator.push(page2)} style={Styles.button} />
-        </View>        
+      <View>  
+        <NavBar title="Welcome" onRightPress = {() => this.props.navigator.push(page2)} />       
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(rowData) => <Text>{rowData}</Text>}

@@ -40,6 +40,19 @@ const Styles = {
       padding : 20,
       borderRadius: 10,
       borderWidth: 2,
+  },
+  textField: {
+      textAlign: 'center', 
+      color: 'black',
+      justifyContent: 'center',
+      alignItems: 'center',  
+      fontSize: 12,
+      fontWeight: 'bold',
+      borderRadius: 10,
+      borderWidth: 2,
+      height: 40, 
+      borderColor: 'gray',
+      margin: 10
   }
 };
 
