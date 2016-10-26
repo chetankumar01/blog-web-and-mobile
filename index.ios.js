@@ -1,26 +1,11 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React from 'react'
+import { AppRegistry } from 'react-native'
+import  { Root } from './app/containers'
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  Navigator,
-} from 'react-native';
-import  Page1 from './app/screens/page1';
-
-export default class blogWebAndMobile extends Component {
+class blogWebAndMobile extends React.PureComponent {
   render() {
-    const initialRoute = { component: Page1 };
     return (
-      <Navigator
-        initialRoute={initialRoute}
-        renderScene={(route, navigator) =>
-          <route.component navigator={navigator} />
-        }
-      />
+      <Root />
     );
   }
 }

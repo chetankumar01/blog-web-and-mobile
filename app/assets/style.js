@@ -1,7 +1,6 @@
 
 const Styles = {
   navBar: {
-    color: '#333333',
     marginBottom: 5,
     backgroundColor : '#667445', 
     height : 60,
