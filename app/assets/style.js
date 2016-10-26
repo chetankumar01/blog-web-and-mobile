@@ -12,12 +12,15 @@ const Styles = {
     color: '#123906',
     backgroundColor : '#465677',
     height: 30,
-    width : 40,
     margin: 10,
     borderRadius: 5,
     borderWidth: 1,
     right : 0,
-    top : 10
+    top: 10, 
+    width: 40 
+  },
+  widthFullScreen: {
+    margin: 10
   },
   text: {
       flex: 1,
