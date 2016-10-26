@@ -9,7 +9,7 @@ import Style from '../assets/style';
 
 let Styles =  StyleSheet.create(Style);
 
-export default (props) => {
+const Header = (props) => {
   return (
     <View style={Styles.navBar}>
       <Text style={Styles.text}>{props.title}</Text>
@@ -17,3 +17,10 @@ export default (props) => {
     </View>
   );
 }
+
+Header.propTypes = {
+  title: React.Proptypes.string,
+  onRightPress: React.Proptypes.func,
+}
+
+export default Header

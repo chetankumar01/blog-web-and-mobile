@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { NewBlog } from '.';
 import { Header } from '../components';
 
-export default (props) => {
+const BlogFeed = (props) => {
   function createNewBlog(){
     props.navigator.push({component: NewBlog});
   }
@@ -13,3 +13,11 @@ export default (props) => {
     </View>
   );
 }
+
+BlogFeed.propTypes = {
+  navigator: {
+    push: React.PropTypes.func,
+  }
+}
+
+export default BlogFeed

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  View,
   StyleSheet,
   TextInput,
 } from 'react-native';
@@ -8,7 +7,7 @@ import Style from '../assets/style';
 
 let Styles =  StyleSheet.create(Style);
 
-export default ({placeholder, value, onChange}) => {
+const CustomTextInput = ({placeholder, value, onChange}) => {
   return (
     <TextInput
         style={Styles.textField}
@@ -18,3 +17,11 @@ export default ({placeholder, value, onChange}) => {
     />
   );
 }
+
+CustomTextInput.propTypes = {
+  placeholder: React.Proptypes.string,
+  value: React.Proptypes.string,
+  onChange: React.Proptypes.func,
+}
+
+export default CustomTextInput

@@ -7,8 +7,6 @@ const Styles = {
     flexDirection: 'row'
   },
   button: {
-    textAlign: 'center',
-    color: '#123906',
     backgroundColor : '#465677',
     height: 30,
     margin: 10,
@@ -23,8 +21,6 @@ const Styles = {
   },
   text: {
       flex: 1,
-      textAlign: 'center', 
-      color: '#333333',
       justifyContent: 'center',
       alignItems: 'center',  
       fontSize: 20,
@@ -33,8 +29,6 @@ const Styles = {
   },
    smallText: {
       flex: 1,
-      textAlign: 'center', 
-      color: 'white',
       justifyContent: 'center',
       alignItems: 'center',  
       fontSize: 12,
@@ -44,8 +38,6 @@ const Styles = {
       borderWidth: 2,
   },
   textField: {
-      textAlign: 'center', 
-      color: 'black',
       justifyContent: 'center',
       alignItems: 'center',  
       fontSize: 12,

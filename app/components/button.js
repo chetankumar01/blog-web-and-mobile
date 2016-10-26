@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  View,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -9,10 +8,17 @@ import Style from '../assets/style';
 
 let Styles =  StyleSheet.create(Style);
 
-export default ({text, onClick}) => {
+const Button = ({text, onClick}) => {
   return (
     <TouchableOpacity onPress={onClick}  style={Styles.button} >
       <Text>{text}</Text>
     </TouchableOpacity>
   );
 }
+
+Button.propTypes = {
+  text: React.PropTypes.string,
+  onClick: React.PropTypes.func,
+}
+
+export default Button
