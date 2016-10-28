@@ -47,7 +47,7 @@ class NewBlog extends React.PureComponent {
           value={this.state.body}
           onChange={(body) => this.setState({body})}
         />
-        <Button text="Save Blog" onClick={this.saveBlog} style1={{flex: 1, alignItems: 'center' ,width: deviceWidth - 20, height: 40}} />
+        <Button text="Save Blog" onClick={this.saveBlog} style={{width: deviceWidth - 20, height: 40}} />
       </View>
     );
   }

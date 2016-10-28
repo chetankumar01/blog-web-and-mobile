@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-let style = StyleSheet.create({
+let styles = StyleSheet.create({
 button: {
     backgroundColor : '#465677',
     height: 30,
@@ -20,10 +20,9 @@ button: {
   }
 });
 
-const Button = ({text, onClick, newStyle}) => {
-  console.log(newStyle)
+const Button = ({text, onClick, style}) => {
   return (
-    <TouchableOpacity onPress={onClick}  style={[style.button, newStyle]}  >
+    <TouchableOpacity onPress={onClick}  style={[styles.button, style]}  >
       <Text>{text}</Text>
     </TouchableOpacity>
   );
@@ -31,7 +30,7 @@ const Button = ({text, onClick, newStyle}) => {
 
 Button.propTypes = {
   text: React.PropTypes.string,
-  onClick: React.PropTypes.func
+  onClick: React.PropTypes.func,
 }
 
 export default Button
