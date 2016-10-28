@@ -4,13 +4,26 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import Style from '../assets/style';
 
-let Styles =  StyleSheet.create(Style);
+let style = StyleSheet.create({
+button: {
+    backgroundColor : '#465677',
+    height: 30,
+    margin: 10,
+    borderRadius: 5,
+    borderWidth: 1,
+    right : 0,
+    top: 10, 
+    width: 40,
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+});
 
-const Button = ({text, onClick}) => {
+const Button = ({text, onClick, newStyle}) => {
+  console.log(newStyle)
   return (
-    <TouchableOpacity onPress={onClick}  style={Styles.button} >
+    <TouchableOpacity onPress={onClick}  style={[style.button, newStyle]}  >
       <Text>{text}</Text>
     </TouchableOpacity>
   );
@@ -18,7 +31,7 @@ const Button = ({text, onClick}) => {
 
 Button.propTypes = {
   text: React.PropTypes.string,
-  onClick: React.PropTypes.func,
+  onClick: React.PropTypes.func
 }
 
 export default Button

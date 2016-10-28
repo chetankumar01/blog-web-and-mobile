@@ -6,9 +6,9 @@ import { NewBlog } from '../containers'
 const NewBlogScreen = (props) => {
   const rightAction = <Button onClick={props.navigator.pop} />;
   return (
-    <View style={{flex: 1, alignItems: 'center'}}>
+    <View>
       <Header title="Save Details" rightAction={rightAction} />
-      <NewBlog />
+      <NewBlog navigator={props.navigator} />
     </View>
   );
 }
