@@ -16,15 +16,7 @@ let style = StyleSheet.create({
       color: '#112334'
   },
 })
-let rowComponent = (data) => {
-  console.log("i am here", data)
-    return (
-      <View>
-        <Text style={style.text}>{data.title}</Text>
-        <Text style={style.text}>{data.title}</Text>
-      </View>
-    );
-};
+
 const List = ({data, rowComponent}) => {
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 let dataSource = ds.cloneWithRows(data);
