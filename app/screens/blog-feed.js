@@ -4,18 +4,14 @@ import { NewBlog } from '.';
 import { Header, Button, List} from '../components';
 
 const BlogFeed = (props) => {
-  function createNewBlog(){
+  function createNewBlog() {
     props.navigator.push({component: NewBlog});
   }
   const rightAction = <Button onClick={createNewBlog} />;
   let dataArray = [];
-   AsyncStorage.getItem('blogs').then((error, blogData) => {
-      if(!error){
-       // this.setState({'store': configureStore(JSON.parse(blogData)) })// eslint-disable-line
-      }
-      dataArray = blogData;
-      console.log("arry details",dataArray)
-    });
+   AsyncStorage.getItem('blogs').then(function(data) {
+     dataArray = JSON.parse(data);
+   });
     let Styles = StyleSheet.create({
       titleText: {
           flex: 1,
