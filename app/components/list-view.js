@@ -1,9 +1,7 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
   ListView,
-  View
 } from 'react-native';
 
 let style = StyleSheet.create({
@@ -22,8 +20,9 @@ const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 let dataSource = ds.cloneWithRows(data);
   return (
     <ListView
+      enableEmptySections
       dataSource={dataSource}
-      renderRow={(rowData) => rowComponent(rowData)}
+      renderRow={(rowData) => rowComponent(rowData)} 
     />
   );
 }

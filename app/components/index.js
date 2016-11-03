@@ -7,5 +7,5 @@ export {
   Header,
   TextInput,
   Button,
-  List,
+  List
 }

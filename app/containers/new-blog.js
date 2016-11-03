@@ -35,6 +35,7 @@ class NewBlog extends React.PureComponent {
   }
   
   render(){
+    console.log(deviceWidth)
     return (
       <View>
         <TextInput
