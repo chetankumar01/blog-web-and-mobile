@@ -4,6 +4,38 @@ import { List } from '../components'
 
 var { width } = Dimensions.get('window');
 
+  
+let Styles = StyleSheet.create({
+    titleText: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',  
+        fontSize: 20,
+        fontWeight: 'bold',
+        padding : 20,
+    },
+    bodyText: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',  
+        fontSize: 12,
+        fontWeight: 'normal',
+        padding : 10,
+    },
+    viewBorder: {
+        flex: 1,
+        backgroundColor : '#556677',
+        margin: 10,
+        borderRadius: 5,
+        borderWidth: 1,
+        right : 0,
+        top: 10, 
+        width: width - 20,
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+    }
+})  
+
 class Blog extends React.PureComponent {
   constructor(props){
     super(props);
@@ -14,9 +46,9 @@ class Blog extends React.PureComponent {
 
   componentWillMount() {
     let self = this;
+    console.log("i am here")
     AsyncStorage.getItem('blogs').then(function(data) {
     let dataArray = JSON.parse(data);
-    console.log(dataArray)
         self.setState({
             data: dataArray
         })
@@ -38,36 +70,6 @@ class Blog extends React.PureComponent {
     );
   }
 }
-   
-let Styles = StyleSheet.create({
-    titleText: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',  
-        fontSize: 20,
-        fontWeight: 'bold',
-        padding : 20,
-    },
-    bodyText: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',  
-        fontSize: 20,
-        fontWeight: 'normal',
-        padding : 20,
-    },
-    viewBorder: {
-        backgroundColor : '#556677',
-        height: 100,
-        margin: 10,
-        borderRadius: 5,
-        borderWidth: 1,
-        right : 0,
-        top: 10, 
-        width: width - 20,
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-    }
-})  
+ 
 
 export default Blog

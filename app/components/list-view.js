@@ -4,17 +4,6 @@ import {
   ListView,
 } from 'react-native';
 
-let style = StyleSheet.create({
- text: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',  
-      fontSize: 20,
-      padding: 20,
-      color: '#112334'
-  },
-})
-
 const List = ({data, rowComponent}) => {
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 let dataSource = ds.cloneWithRows(data);

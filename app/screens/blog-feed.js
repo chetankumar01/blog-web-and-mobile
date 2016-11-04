@@ -11,7 +11,7 @@ const BlogFeed = (props) => {
   const rightAction = <Button onClick={createNewBlog} />;
 
   return (
-    <View>
+    <View style={{flex: 1}}>
       <Header title="Welcome" rightAction={rightAction} />
       <FeedContainer />
     </View>
