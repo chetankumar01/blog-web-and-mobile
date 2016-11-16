@@ -3,20 +3,27 @@ import {
   StyleSheet,
   TextInput,
 } from 'react-native';
-import Style from '../assets/style';
 
-let Styles =  StyleSheet.create(Style);
-
-const CustomTextInput = ({placeholder, value, onChange}) => {
-  return (
-    <TextInput
-        style={Styles.textField}
-        onChangeText={onChange}
-        value={value}
-        placeholder={placeholder}
-    />
-  );
-}
+const Styles = StyleSheet.create({
+  textField: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    height: 40,
+    paddingHorizontal: 10,
+    marginVertical: 5
+  }
+})
+  const CustomTextInput = ({placeholder, value, onChange, multiline}) => {
+    return (
+      <TextInput
+          style={Styles.textField}
+          onChangeText={onChange}
+          value={value}
+          placeholder={placeholder}
+          multiline={multiline}
+      />
+    );
+  }
 
 CustomTextInput.propTypes = {
   placeholder: React.PropTypes.string,

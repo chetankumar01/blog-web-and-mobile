@@ -1,24 +1,25 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
-  TouchableOpacity,
+  Button as ReactButton,
+  View,
 } from 'react-native';
-import Style from '../assets/style';
 
-let Styles =  StyleSheet.create(Style);
-
-const Button = ({text, onClick}) => {
+const Button = ({title, onPress}) => {
   return (
-    <TouchableOpacity onPress={onClick}  style={Styles.button} >
-      <Text>{text}</Text>
-    </TouchableOpacity>
+    <View style={{backgroundColor: 'skyblue'}}>
+    <ReactButton
+        onPress={onPress}
+        title={title}
+        color={'black'}
+    />
+    </View>
   );
 }
 
 Button.propTypes = {
-  text: React.PropTypes.string,
-  onClick: React.PropTypes.func,
+  title: React.PropTypes.string,
+  onPress: React.PropTypes.func,
 }
 
 export default Button

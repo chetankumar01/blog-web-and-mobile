@@ -1,7 +1,9 @@
-import Root from './root'
-import NewBlog from './new-blog'
+import RootContainer from './root-container'
+import NewBlogContainer from './new-blog-container'
+import BlogFeedContainer from './blog-feed-container'
 
 export {
-  Root,
-  NewBlog,
+  RootContainer,
+  NewBlogContainer,
+  BlogFeedContainer,
 }

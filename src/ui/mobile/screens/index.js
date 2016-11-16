@@ -1,7 +1,7 @@
-import BlogFeed from './blog-feed'
-import NewBlog from './new-blog'
+import BlogFeedScreen from './blog-feed-screen'
+import NewBlogScreen from './new-blog-screen'
 
 export {
-  BlogFeed,
-  NewBlog,
+  BlogFeedScreen,
+  NewBlogScreen,
 }

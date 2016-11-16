@@ -4,14 +4,23 @@ import {
   StyleSheet,
   Text,
 } from 'react-native';
-import Style from '../assets/style';
 
-let Styles =  StyleSheet.create(Style);
-
+let Styles = StyleSheet.create({
+  headerContainer: {
+    paddingTop: 25,
+    backgroundColor: 'aliceblue',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: 5,
+  },
+  headerTitle: {
+    fontSize: 24,
+  },
+})
 const Header = ({title, rightAction}) => {
   return (
-    <View style={Styles.navBar}>
-      <Text style={Styles.text}>{title}</Text>
+    <View style={Styles.headerContainer}>
+      <Text style={Styles.headerTitle}>{title}</Text>
       {rightAction}
     </View>
   );
