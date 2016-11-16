@@ -1,11 +1,14 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const StatsPlugin = require('stats-webpack-plugin');
+
+console.log();
 
 module.exports = {
   entry: {
-    app: ['./index.web.js'],
+    app: './index.web.js',
   },
   output: {
-    path: __dirname + '/web/build', // This is where images AND js will go
+    path: './web-server/build',
     publicPath: '/',
     filename: 'bundle.[name].[hash].js'
   },
@@ -38,9 +41,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './web/index.html'
-    }),
+    new StatsPlugin('stats.json')
   ],
   resolve: {
     extensions: ['.js', '.json']
