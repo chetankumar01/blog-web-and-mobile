@@ -8,13 +8,14 @@ const NewBlogScreen = (props) => {
   return (
     <View>
       <Header title="Save Details" rightAction={rightAction} />
-      <NewBlogContainer navigator={props.navigator} />
+      <NewBlogContainer navigator={props.navigator} addBlog={props.addBlog} />
     </View>
   );
 }
 
 NewBlogScreen.propTypes = {
-  navigator: React.PropTypes.object
+  navigator: React.PropTypes.object,
+  addBlog: React.PropTypes.func
 }
 
 export default NewBlogScreen

@@ -22,15 +22,12 @@ class NewBlog extends React.PureComponent {
       return;
     }
     const newBlog =  { 'title': this.state.title, 'body': this.state.body };
-    AsyncStorage.getItem('blogs').then( (value) => {
-      let blogs = JSON.parse(value) || [];
-      blogs.push(new_blog);
-      AsyncStorage.setItem('blogs', JSON.stringify(blogs));
-      self.props.navigator.pop();
-    });
+    this.props.addBlog(newBlog)
+    this.props.navigator.pop();
   }
 
   render(){
+    console.log(this.props)
     return (
       <View>
         <TextInput

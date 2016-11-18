@@ -5,7 +5,9 @@ import { View,
          Text,
          Dimensions,
          ListView,
+         TouchableOpacity,
 } from 'react-native'
+import { Button } from '../components'
 
 var { width } = Dimensions.get('window');
 
@@ -36,23 +38,33 @@ let Styles = StyleSheet.create({
     }
 
     componentWillMount() {
-      AsyncStorage.getItem('blogs').then( (data) => {
-        let blogs = JSON.parse(data);
-        this.setState({blogs});
+      this.getBlogs();
+    }
+
+    componentWillReceiveProps() {
+      this.getBlogs();
+    }
+
+    getBlogs() {
+      let self = this;
+      this.props.getBlogs().then(function(data) {
+        self.setState({
+          blogs: JSON.parse(data)
+        });
       });
     }
 
+
     renderBlog = (blogData) => {
       return (
-        <View style={Styles.blogItem}>
+        <TouchableOpacity onPress={() => alert(blogData.title)} style={Styles.blogItem}>
           <Text style={Styles.titleText}>{blogData.title}</Text>
           <Text style={Styles.bodyText}>{blogData.body}</Text>
-        </View>
+        </TouchableOpacity>
       );
     }
 
     render() {
-      console.log(this.state.blogs);
       const dataSource = this.state.ds.cloneWithRows(this.state.blogs);
       return (
         <ListView

@@ -1,14 +1,27 @@
 import React from 'react'
-import { Navigator } from 'react-native'
+import { Navigator , AsyncStorage} from 'react-native'
 import  { BlogFeedScreen } from '../screens'
 
 class Root extends React.PureComponent {
+  
+  addBlog(blog) {
+    AsyncStorage.getItem('blogs').then( (value) => {
+      let blogs = JSON.parse(value) || [];
+      blogs.push(blog);
+      AsyncStorage.setItem('blogs', JSON.stringify(blogs));
+    });
+  }
+
+  getBlogs() {
+    return AsyncStorage.getItem('blogs');
+  }
+
   render() {
     const initialRoute = { component: BlogFeedScreen };
     return (
       <Navigator
-          initialRoute={initialRoute}
-          renderScene={(route, navigator) => <route.component navigator={navigator} />}
+        initialRoute={initialRoute}
+        renderScene={(route, navigator) => <route.component navigator={navigator} addBlog={this.addBlog} getBlogs={this.getBlogs} /> }
       />
     );
   }

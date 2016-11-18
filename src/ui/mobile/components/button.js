@@ -5,14 +5,10 @@ import {
   View,
 } from 'react-native';
 
-const Button = ({title, onPress}) => {
+const Button = ({title, onPress, children, wrapperStyle}) => {
   return (
-    <View style={{backgroundColor: 'skyblue'}}>
-    <ReactButton
-        onPress={onPress}
-        title={title}
-        color={'black'}
-    />
+    <View style={wrapperStyle}>
+    <ReactButton onPress={onPress} title={title} color={'black'} />
     </View>
   );
 }
@@ -20,6 +16,8 @@ const Button = ({title, onPress}) => {
 Button.propTypes = {
   title: React.PropTypes.string,
   onPress: React.PropTypes.func,
+  children: React.PropTypes.element,
+  wrapperStyle: React.PropTypes.object,
 }
 
 export default Button
