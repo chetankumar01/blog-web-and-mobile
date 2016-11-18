@@ -21,7 +21,7 @@ class Root extends React.PureComponent {
     return (
       <Navigator
         initialRoute={initialRoute}
-        renderScene={(route, navigator) => <route.component navigator={navigator} addBlog={this.addBlog} getBlogs={this.getBlogs} /> }
+        renderScene={(route, navigator) => <route.component navigator={navigator} addBlog={this.addBlog} getBlogs={this.getBlogs} {...route.passProps} /> }
       />
     );
   }

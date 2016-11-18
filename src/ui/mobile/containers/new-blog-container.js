@@ -42,7 +42,7 @@ class NewBlog extends React.PureComponent {
             onChange={(body) => this.setState({body})}
             multiline={true}
         />
-        <Button title="Save" onPress={this.saveBlog} />
+        <Button title="Save" onPress={this.saveBlog} wrapperStyle={{backgroundColor: 'skyblue'}}/>
       </View>
     );
   }

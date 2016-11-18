@@ -54,10 +54,14 @@ let Styles = StyleSheet.create({
       });
     }
 
+    blogDetail(selectedBlogData){
+       this.props.onBlogPress ? this.props.onBlogPress(selectedBlogData) : {}; 
+    }
+
 
     renderBlog = (blogData) => {
       return (
-        <TouchableOpacity onPress={() => alert(blogData.title)} style={Styles.blogItem}>
+        <TouchableOpacity onPress={() => this.blogDetail(blogData)} style={Styles.blogItem}>
           <Text style={Styles.titleText}>{blogData.title}</Text>
           <Text style={Styles.bodyText}>{blogData.body}</Text>
         </TouchableOpacity>
@@ -75,6 +79,4 @@ let Styles = StyleSheet.create({
       );
     }
   }
-
-
 export default BlogFeedContainer
