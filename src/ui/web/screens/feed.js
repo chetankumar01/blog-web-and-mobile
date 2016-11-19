@@ -2,7 +2,6 @@ import React from 'react'
 import { fetchState } from 'react-router-server';
 import { Header } from '../components'
 import fetch from 'isomorphic-fetch'
-require('es6-promise').polyfill()
 import { connect } from 'react-redux'
 import { FeedActions } from '../../../state/actions/'
 
@@ -32,14 +31,6 @@ import { FeedActions } from '../../../state/actions/'
               });
             })
           });
-        });
-      }
-      else{
-        this.props.done({
-          Feed: {
-            feedItems: this.props.feed,
-            isFeedLoaded: this.props.isFeedLoaded,
-          }
         });
       }
     }

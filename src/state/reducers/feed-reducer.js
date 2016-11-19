@@ -8,16 +8,16 @@ const initialState = {
 export default function (state = initialState, action) {
   switch(action.type) {
     case FeedActions.SET_FEED:
-      state.feedItems = action.feedItems;
-      state.isFeedLoaded = true;
-      return state;
+      return {
+        isFeedLoaded: true,
+        feedItems: [...action.feedItems]
+      };
 
     case FeedActions.APPEND_TO_FEED:
-      let newState = {
+      return {
         isFeedLoaded: state.isFeedLoaded,
         feedItems: [...state.feedItems, ...action.feedItems]
       };
-      return newState;
       
     default:
       return state;

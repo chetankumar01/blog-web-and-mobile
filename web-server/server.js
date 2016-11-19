@@ -4,26 +4,25 @@ import { ServerRouter, createServerRenderContext } from 'react-router'
 import express from 'express'
 import path from 'path'
 import favicon from 'serve-favicon'
-import stats from './build/stats.json'
 
+import stats from './build/stats.json'
 import { Root } from '../src/ui/web/containers/'
 import { ConfigureStore } from '../src/state/store'
 
-
 const app = express();
-const context = createServerRenderContext();
-
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
 
+const context = createServerRenderContext();
+
 app.get('*', function (req, res) {
-  const store = ConfigureStore();
+  const store = ConfigureStore({});
   const server = (
     <ServerRouter
       location={req.url}
       context={context}
     >
-      {({action, location, router}) => <Root router={router} action={action} location={location} store={store} />}
+      {({location, router}) => <Root router={router} location={location} store={store} />}
     </ServerRouter>
   );
   renderToString(server, context)

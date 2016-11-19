@@ -1,8 +1,6 @@
 const path = require('path');
 const StatsPlugin = require('stats-webpack-plugin');
 
-console.log();
-
 module.exports = {
   entry: {
     app: './index.web.js',
