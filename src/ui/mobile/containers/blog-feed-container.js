@@ -11,6 +11,10 @@ import { Button } from '../components'
 
 var { width } = Dimensions.get('window');
 
+import { connect } from 'react-redux'
+
+import { FeedActions } from '../../../state/actions'
+
 
 let Styles = StyleSheet.create({
   titleText: {
@@ -26,57 +30,52 @@ let Styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: 'aliceblue'
   }
-})
+});
 
-  class BlogFeedContainer extends React.PureComponent {
-    constructor(props){
-      super(props);
-      this.state = {
-        blogs: [],
-        ds: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
-      }
-    }
-
-    componentWillMount() {
-      this.getBlogs();
-    }
-
-    componentWillReceiveProps() {
-      this.getBlogs();
-    }
-
-    getBlogs() {
-      let self = this;
-      this.props.getBlogs().then(function(data) {
-        self.setState({
-          blogs: JSON.parse(data)
-        });
-      });
-    }
-
-    blogDetail(selectedBlogData){
-       this.props.onBlogPress ? this.props.onBlogPress(selectedBlogData) : {}; 
-    }
-
-
-    renderBlog = (blogData) => {
-      return (
-        <TouchableOpacity onPress={() => this.blogDetail(blogData)} style={Styles.blogItem}>
-          <Text style={Styles.titleText}>{blogData.title}</Text>
-          <Text style={Styles.bodyText}>{blogData.body}</Text>
-        </TouchableOpacity>
-      );
-    }
-
-    render() {
-      const dataSource = this.state.ds.cloneWithRows(this.state.blogs);
-      return (
-        <ListView
-            dataSource={dataSource}
-            renderRow={(blogData) => this.renderBlog(blogData)}
-            enableEmptySections={true}
-        />
-      );
+class BlogFeedContainer extends React.PureComponent {
+  constructor(props){
+    super(props);
+    this.state = {
+      ds: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     }
   }
-export default BlogFeedContainer
+
+  componentWillMount() {
+    //this.getBlogs();
+  }
+
+  blogDetail(selectedBlogData){
+    this.props.onBlogPress ? this.props.onBlogPress(selectedBlogData) : {};
+  }
+
+
+  renderBlog = (blogData, sectionId, rowId) => {
+    console.log(rowId, sectionId);
+    return (
+      <TouchableOpacity onPress={() => this.blogDetail(rowId)} style={Styles.blogItem}>
+        <Text style={Styles.titleText}>{blogData.title}</Text>
+        <Text style={Styles.bodyText}>{blogData.body}</Text>
+      </TouchableOpacity>
+    );
+  }
+
+  render() {
+    console.log(this.props);
+    const dataSource = this.state.ds.cloneWithRows(this.props.blogs);
+    return (
+      <ListView
+          dataSource={dataSource}
+          renderRow={this.renderBlog}
+          enableEmptySections={true}
+      />
+    );
+  }
+}
+
+function mapStateToProps(state, ownProps){
+  return {
+    blogs: state.Feed.feedItems
+  }
+}
+
+export default connect(mapStateToProps, {...FeedActions})(BlogFeedContainer);

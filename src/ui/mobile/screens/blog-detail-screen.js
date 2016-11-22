@@ -5,12 +5,11 @@ import { NewBlogScreen } from '../screens'
 import { BlogFeedDetailContainer, BlogFeedContainer} from '../containers'
 
 const BlogFeedDetailScreen = (props) => {
-    console.log(props)
- const rightAction = <Button onPress={props.navigator.pop} title="Back" />;
+  const rightAction = <Button onPress={props.navigator.pop} title="Back" />;
   return (
     <View style={{flex: 1}}>
-        <Header title="Blog detail" rightAction={rightAction} />
-        <BlogFeedDetailContainer  blogData = {props.blogData}/>
+      <Header title="Blog detail" rightAction={rightAction} />
+      <BlogFeedDetailContainer  blogIndex = {props.blogIndex}/>
     </View>
   );
 }

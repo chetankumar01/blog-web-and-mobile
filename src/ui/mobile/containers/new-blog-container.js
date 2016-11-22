@@ -2,6 +2,10 @@ import React from 'react'
 import { View,Dimensions,AsyncStorage } from 'react-native'
 import { TextInput, Button } from '../components'
 
+import { connect } from 'react-redux'
+
+import { FeedActions } from '../../../state/actions'
+
 let { width } = Dimensions.get('window');
 
 class NewBlog extends React.PureComponent {
@@ -22,7 +26,7 @@ class NewBlog extends React.PureComponent {
       return;
     }
     const newBlog =  { 'title': this.state.title, 'body': this.state.body };
-    this.props.addBlog(newBlog)
+    this.props.addFeed(newBlog)
     this.props.navigator.pop();
   }
 
@@ -48,4 +52,8 @@ class NewBlog extends React.PureComponent {
   }
 }
 
-export default NewBlog
+function mapStateToProps(){
+  return {}
+}
+
+export default connect(mapStateToProps, {...FeedActions})(NewBlog)

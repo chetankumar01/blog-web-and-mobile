@@ -12,10 +12,10 @@ export default function (state = initialState, action) {
       state.isFeedLoaded = true;
       return state;
 
-    case FeedActions.APPEND_TO_FEED:
+    case FeedActions.ADD_FEED:
       let newState = {
         isFeedLoaded: state.isFeedLoaded,
-        feedItems: [...state.feedItems, ...action.feedItems]
+        feedItems: [...state.feedItems, action.blog]
       };
       return newState;
       

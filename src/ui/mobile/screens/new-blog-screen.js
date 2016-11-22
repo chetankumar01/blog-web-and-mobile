@@ -8,7 +8,7 @@ const NewBlogScreen = (props) => {
   return (
     <View>
       <Header title="Save Details" rightAction={rightAction}/>
-      <NewBlogContainer navigator={props.navigator} addBlog={props.addBlog} />
+      <NewBlogContainer navigator={props.navigator} />
     </View>
   );
 }

@@ -10,11 +10,11 @@ const BlogFeed = (props) => {
     props.navigator.push({component: NewBlogScreen});
   }
    
-  function blogDetails(selectedBlogData) {
+  function blogDetails(selectedBlogIndex) {
     props.navigator.push({
       component: BlogFeedDetailScreen,
       passProps: {
-        blogData: selectedBlogData
+        blogIndex: selectedBlogIndex
       }
     });
   }
@@ -24,7 +24,7 @@ const BlogFeed = (props) => {
   return (
     <View style={{flex: 1}}>
       <Header title="Blog Feed" rightAction={rightAction} />
-      <BlogFeedContainer getBlogs={props.getBlogs} onBlogPress = {blogDetails} />
+      <BlogFeedContainer onBlogPress = {blogDetails} />
     </View>
   );
 }

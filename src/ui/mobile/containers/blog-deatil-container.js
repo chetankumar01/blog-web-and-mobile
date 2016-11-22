@@ -9,6 +9,8 @@ import { View,
 } from 'react-native'
 import { Button } from '../components'
 
+import { connect } from 'react-redux'
+
 let Styles = StyleSheet.create({
   titleText: {
     fontSize: 20,
@@ -23,23 +25,24 @@ let Styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: 'aliceblue'
   }
-})
+});
 
-  class BlogFeedDetailContainer extends React.PureComponent {
-    constructor(props){
-      super(props);
-      this.state = {
-      }
-    }
-
-    render() {
-        const blogData = this.props.blogData;
-      return (
-         <View style={{flex:1}}>
-          <Text style={Styles.titleText}>{blogData.title}</Text>
-          <Text style={Styles.bodyText}>{blogData.body}</Text>
-        </View>
-      );
-    }
+class BlogFeedDetailContainer extends React.PureComponent {
+  render() {
+    const blog = this.props.blog;
+    return (
+      <View style={{flex:1}}>
+        <Text style={Styles.titleText}>{blog.title}</Text>
+        <Text style={Styles.bodyText}>{blog.body}</Text>
+      </View>
+    );
   }
-export default BlogFeedDetailContainer
+}
+
+function mapStateToProps(state, ownProps){
+  return {
+    blog: state.Feed.feedItems[Number(ownProps.blogIndex)]
+  }
+}
+
+export default connect(mapStateToProps, {})(BlogFeedDetailContainer);
